@@ -20,6 +20,16 @@ TBD
 - [] Send Yichen your Github username for the access to the repository
 
 - [] Attend the team meeting on Aug 9th for work distribution.
+
+
+#### 8/10/2019
+#### Meeting Content
+- Researching and initiate the projects with the student engagements
+- Divide the work into Machine Learning, Computer Vision, and front end
+#### To-dos
+- Finish back-end by Wednesday
+- Finish frame for GUI by Wednesday
+- Display live data in the GUI by Thursday
 ## Hardware
 TBD
 ## Software
