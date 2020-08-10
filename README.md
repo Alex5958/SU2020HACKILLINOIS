@@ -6,8 +6,8 @@ Useful links for eye detection:
 - https://github.com/gdubrg/Eye-Tracking-for-Everyone
 - https://medium.com/@rcdilorenzo/eye-tracking-update-neural-network-architecture-and-loss-functions-7392a3f5a2af
 - http://www.pygaze.org/2015/06/webcam-eye-tracker/
--https://github.com/esdalmaijer/webcam-eyetracker
--https://towards.ai/deepgaze-ml-powered-eye-tracking-gaze-prediction/
+- https://github.com/esdalmaijer/webcam-eyetracker
+- https://towards.ai/deepgaze-ml-powered-eye-tracking-gaze-prediction/
 ## Team Meeting
 TBD
 ## Meeting Recap
