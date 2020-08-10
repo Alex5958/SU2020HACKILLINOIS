@@ -27,6 +27,9 @@ TBD
 - Researching and initiate the projects with the student engagements
 - Divide the work into Machine Learning, Computer Vision, and front end
 #### To-dos
+- By Tuesday
+	* Criteria to detect wheather or not student is engaged or not @ML
+	* Successful detection on python @CV
 - Finish back-end by Wednesday
 - Finish frame for GUI by Wednesday
 - Display live data in the GUI by Thursday
