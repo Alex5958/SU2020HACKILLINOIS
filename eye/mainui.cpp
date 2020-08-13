@@ -24,23 +24,23 @@ public:
 　　{
 　　　　if (Qt_imgClass->objectName().isEmpty())
 　　　　　　Qt_imgClass->setObjectName(QString::fromUtf8("Qt_imgClass"));
-　　　　Qt_imgClass->resize(895, 628);
-　　　　centralWidget = new QWidget(Qt_imgClass);
-　　　　centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-　　　　widget1 = new QWidget(centralWidget);
-　　　　widget1->setObjectName(QString::fromUtf8("widget1"));
-　　　　widget1->setGeometry(QRect(360, 40, 471, 371));
-　　　　Qt_imgClass->setCentralWidget(centralWidget);
-　　　　menuBar = new QMenuBar(Qt_imgClass);
-　　　　menuBar->setObjectName(QString::fromUtf8("menuBar"));
-　　　　menuBar->setGeometry(QRect(0, 0, 895, 26));
-　　　　Qt_imgClass->setMenuBar(menuBar);
-　　　　mainToolBar = new QToolBar(Qt_imgClass);
-　　　　mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-　　　　Qt_imgClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
-　　　　statusBar = new QStatusBar(Qt_imgClass);
-　　　　statusBar->setObjectName(QString::fromUtf8("statusBar"));
-　　　　Qt_imgClass->setStatusBar(statusBar);
+　　　　    Qt_imgClass->resize(895, 628);
+    　　　　centralWidget = new QWidget(Qt_imgClass);
+    　　　　centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+    　　　　widget1 = new QWidget(centralWidget);
+    　　　　widget1->setObjectName(QString::fromUtf8("widget1"));
+    　　　　widget1->setGeometry(QRect(360, 40, 471, 371));
+    　　　　Qt_imgClass->setCentralWidget(centralWidget);
+    　　　　menuBar = new QMenuBar(Qt_imgClass);
+    　　　　menuBar->setObjectName(QString::fromUtf8("menuBar"));
+    　　　　menuBar->setGeometry(QRect(0, 0, 895, 26));
+    　　　　Qt_imgClass->setMenuBar(menuBar);
+    　　　　mainToolBar = new QToolBar(Qt_imgClass);
+    　　　　mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+    　　　　Qt_imgClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
+    　　　　statusBar = new QStatusBar(Qt_imgClass);
+    　　　　statusBar->setObjectName(QString::fromUtf8("statusBar"));
+    　　　　Qt_imgClass->setStatusBar(statusBar);
 
 　　　　retranslateUi(Qt_imgClass);
 

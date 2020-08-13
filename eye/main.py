@@ -11,8 +11,8 @@ from PyQt5.QtGui import QPixmap, QImage
 class Window(QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
-        loadUi('GUImain.ui', self)
-        with open("style.css", "r") as css:
+        loadUi('GUImain.ui', self) # todo: insert a working simple UI
+        with open("style.css", "r") as css: # todo: insert a working CSS
             self.setStyleSheet(css.read())
         self.face_decector, self.eye_detector, self.detector = process.init_cv()
         self.startButton.clicked.connect(self.start_webcam)
