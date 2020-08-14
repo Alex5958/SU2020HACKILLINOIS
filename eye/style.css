@@ -1,7 +1,29 @@
+QWidget{
+background: #FF9900;
+}
 QMainWindow{
-            background-color: rgb(33, 33, 33);
+            background-color: #ff9900;
             color: #ff9900;
-        }
+}
+
+starttext{
+position: absolute;
+width: 227.16px;
+height: 54.75px;
+left: 44px;
+top: 87.73px;
+
+font-family: Source Sans Pro;
+font-style: normal;
+font-weight: 600;
+font-size: 30px;
+line-height: 38px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #FCA41F;
+
+}
 
 QLabel{
     color: white;
@@ -9,6 +31,8 @@ QLabel{
 
 QLabel#leftEyeBox, QLabel#rightEyeBox, QLabel#baseImage {
     border: 2px solid white;
+    border-radius: 15px;
+
 }
 
 QCheckBox {
@@ -16,11 +40,11 @@ QCheckBox {
 }
 
 QPushButton {
-    background-color: rgb(99, 144, 3);
-
-    border-width: 2px;
-    border-radius: 10px;
+    position: absolute;
+    background: #FFFFFF;
+    border-radius: 15px;
 }
+
 
 QPushButton:pressed{
     border-style: inset;

@@ -5,8 +5,8 @@ import numpy as np
 
 def init_cv():
     """loads all of cv2 tools"""
-    face_detector = cv2.CascadeClassifier('E:/Onedrive/UIUC/Summer 2020/2020HackIllinois/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_frontalface_default.xml')
-    eye_detector = cv2.CascadeClassifier('E:/Onedrive/UIUC/Summer 2020/2020HackIllinois/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_eye.xml')
+    face_detector = cv2.CascadeClassifier('C:/UCSD/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_frontalface_default.xml')
+    eye_detector = cv2.CascadeClassifier('C:/UCSD/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_eye.xml')
     detector_params = cv2.SimpleBlobDetector_Params()
     detector_params.filterByArea = True
     detector_params.maxArea = 1500
@@ -118,23 +118,23 @@ def motion_ratio(left_keypoints, previous_left_keypoints, right_keypoints, previ
     horizontal_ratio = (pupil_left_horizontal + pupil_right_horizontal) / 2
     vertical_ratio = (pupil_left_vertical + pupil_right_vertical) / 2
 
-    return horizontal_ratio vertical_ratio
+    return horizontal_ratio,vertical_ratio
 
 def is_right(horizontal_ratio):
     """Returns true if the user is looking to the right"""
-        return horizontal_ratio <= 0.35
+    return horizontal_ratio <= 0.35
 
 def is_left(horizontal_ratio):
     """Returns true if the user is looking to the left"""
-        return horizontal_ratio >= 0.65
+    return horizontal_ratio >= 0.65
 
 def is_up(vertical_ratio):
     """Returns true if the user is looking to the right"""
-        return vertical_ratio <= 0.35
+    return vertical_ratio <= 0.35
 
 def is_down(vertical_ratio):
     """Returns true if the user is looking to the left"""
-        return vertical_ratio >= 0.65
+    return vertical_ratio >= 0.65
 
 def cut_eyebrows(img, imgG):
     height, width = img.shape[:2]
