@@ -35,7 +35,7 @@ We learned how to test different algorithms for eye detection, making sure that 
 Right now we only have it on a one to one basis, however ideally this should be expanded towards a larger audience. So hopefully we can integrate multiple people onto the same system so that teachers will have more access to all of their students.
 
 
-##References
+## References
 * https://github.com/antoinelame/GazeTracking/tree/master/gaze_tracking
 * https://docs.opencv.org/2.4/doc/tutorials/objdetect/cascade_classifier/cascade_classifier.html
 * https://medium.com/dataseries/face-recognition-with-opencv-haar-cascade-a289b6ff042a
