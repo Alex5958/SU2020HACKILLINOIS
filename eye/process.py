@@ -77,13 +77,13 @@ def detect_eyes(img, img_gray, lest, rest, cascade):
                 rightEye, rightEye = cut_eyebrows(rightEye, rightEyeG)
             else:
                 pass  # nostril
+            print(leftEye)
     return leftEye, rightEye, leftEyeG, rightEyeG
 
 
 
 def process_eye(img, threshold, detector, prevArea=None):
     """
-
     :param img: eye frame
     :param threshold: threshold value for threshold function
     :param detector:  blob detector
@@ -102,8 +102,39 @@ def process_eye(img, threshold, detector, prevArea=None):
                 ans = keypoint
                 tmp = abs(keypoint.size - prevArea)
         keypoints = np.array(ans)
-
     return keypoints
+
+def motion_ratio(left_keypoints, previous_left_keypoints, right_keypoints, previous_right_keypoints):
+    """Returns a number between 0.0 and 1.0 that indicates the
+    horizontal direction of the gaze. The extreme right is 0.0,
+    the center is 0.5 and the extreme left is 1.0
+    """
+    pupil_left_horizontal = left_keypoints[0] / (previous_left_keypoints[0] * 2 - 10)
+    pupil_right_horizontal = right_keypoints[0] / (previous_right_keypoints[0] * 2 - 10)
+    
+    pupil_left_vertical = left_keypoints[1] / (previous_left_keypoints[1] * 2 - 10)
+    pupil_right_vertical = right_keypoints[1] / (previous_right_keypoints[1] * 2 - 10)
+    
+    horizontal_ratio = (pupil_left_horizontal + pupil_right_horizontal) / 2
+    vertical_ratio = (pupil_left_vertical + pupil_right_vertical) / 2
+
+    return horizontal_ratio vertical_ratio
+
+def is_right(horizontal_ratio):
+    """Returns true if the user is looking to the right"""
+        return horizontal_ratio <= 0.35
+
+def is_left(horizontal_ratio):
+    """Returns true if the user is looking to the left"""
+        return horizontal_ratio >= 0.65
+
+def is_up(vertical_ratio):
+    """Returns true if the user is looking to the right"""
+        return vertical_ratio <= 0.35
+
+def is_down(vertical_ratio):
+    """Returns true if the user is looking to the left"""
+        return vertical_ratio >= 0.65
 
 def cut_eyebrows(img, imgG):
     height, width = img.shape[:2]
