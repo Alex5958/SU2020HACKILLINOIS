@@ -5,8 +5,8 @@ import numpy as np
 
 def init_cv():
     """loads all of cv2 tools"""
-    face_detector = cv2.CascadeClassifier('C:/Users/kant4/Desktop/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_frontalface_default.xml')
-    eye_detector = cv2.CascadeClassifier('C:/Users/kant4/Desktop/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_eye.xml')
+    face_detector = cv2.CascadeClassifier('E:/Onedrive/UIUC/Summer 2020/2020HackIllinois/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_frontalface_default.xml')
+    eye_detector = cv2.CascadeClassifier('E:/Onedrive/UIUC/Summer 2020/2020HackIllinois/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_eye.xml')
     detector_params = cv2.SimpleBlobDetector_Params()
     detector_params.filterByArea = True
     detector_params.maxArea = 1500
@@ -77,7 +77,6 @@ def detect_eyes(img, img_gray, lest, rest, cascade):
                 rightEye, rightEye = cut_eyebrows(rightEye, rightEyeG)
             else:
                 pass  # nostril
-            print(leftEye)
     return leftEye, rightEye, leftEyeG, rightEyeG
 
 
