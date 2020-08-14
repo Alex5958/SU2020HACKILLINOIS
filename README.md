@@ -16,7 +16,7 @@ This desktop application allows the both users to see whether or not the student
 
 ## How we built it
 
-We built the program using the cv library in python. This helped us to identify the different areas of the face as well as segments of the eyes. It calculates the ratio that indicates the horizontal and vertical direction of the gaze which is changing over time which means that we can track this parameter to see whether or not the person is paying attention or looking at the computer screen.
+We built the program using the cv library in python, more specifically we applied the cascade classifier which is a model design for face and eye detection. In the project, we pass the video captured by the front webcam through a Gaussian filter and created a grey scale image from that. The Susan principle is utilized to highlight light and dark spots to help with edge detection. We then use the cascaded model to allocate the eyes and face at that particular frame. Then the program compares the current eye locations of both and right and left eyes with the previous frame. The ratio that indicates the horizontal and vertical direction of the gaze which is changing over time which means that we can track this parameter to see whether or not the person is paying attention or looking at the computer screen.
 
 ## Challenges we ran into
 
@@ -33,3 +33,12 @@ We learned how to test different algorithms for eye detection, making sure that 
 ## What's next for DooDeeDee
 
 Right now we only have it on a one to one basis, however ideally this should be expanded towards a larger audience. So hopefully we can integrate multiple people onto the same system so that teachers will have more access to all of their students.
+
+
+##References
+* https://github.com/antoinelame/GazeTracking/tree/master/gaze_tracking
+* https://docs.opencv.org/2.4/doc/tutorials/objdetect/cascade_classifier/cascade_classifier.html
+* https://medium.com/dataseries/face-recognition-with-opencv-haar-cascade-a289b6ff042a
+* https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
+* https://senitco.github.io/2017/07/01/image-feature-susan/
+* https://users.fmrib.ox.ac.uk/~steve/susan/
