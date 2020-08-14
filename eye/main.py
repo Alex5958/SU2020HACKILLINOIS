@@ -50,12 +50,8 @@ class Window(QMainWindow):
             base_image, processed_image, self.face_decector)
 
         if face_frame is not None:
-            left_eye_frame, right_eye_frame, left_eye_frame_gray, right_eye_frame_gray = process.detect_eyes(face_frame,
-                                                                                                             face_frame_gray,
-                                                                                                             left_eye_estimated_position,
-                                                                                                             right_eye_estimated_position,
-                                                                                                             self.eye_detector)
-
+            left_eye_frame, right_eye_frame, left_eye_frame_gray, right_eye_frame_gray = process.detect_eyes(
+                base_image, processed_image, left_eye_estimated_position, right_eye_estimated_position, self.eye_detector)
             if right_eye_frame is not None:
                 if self.rightEyeCheckbox.isChecked():
                     right_eye_threshold = self.rightEyeThreshold.value()

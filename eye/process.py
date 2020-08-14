@@ -5,16 +5,14 @@ import numpy as np
 
 def init_cv():
     """loads all of cv2 tools"""
-    face_detector = cv2.CascadeClassifier(
-        os.path.join("Classifiers", "haar", "haarcascade_frontalface_default.xml"))
-    eye_detector = cv2.CascadeClassifier(os.path.join("Classifiers", "haar", 'haarcascade_eye.xml'))
+    face_detector = cv2.CascadeClassifier('E:/Onedrive/UIUC/Summer 2020/2020HackIllinois/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_frontalface_default.xml')
+    eye_detector = cv2.CascadeClassifier('E:/Onedrive/UIUC/Summer 2020/2020HackIllinois/SU2020HACKILLINOIS/eye/Classifiers/haar/haarcascade_eye.xml')
     detector_params = cv2.SimpleBlobDetector_Params()
     detector_params.filterByArea = True
     detector_params.maxArea = 1500
     detector = cv2.SimpleBlobDetector_create(detector_params)
 
     return face_detector, eye_detector, detector
-
 
 def detect_face(img, img_gray, cascade):
     """
@@ -27,7 +25,7 @@ def detect_face(img, img_gray, cascade):
     6. Y of the face frame
     """
     coords = cascade.detectMultiScale(img, 1.3, 5)
-
+ 
     if len(coords) > 1:
         biggest = (0, 0, 0, 0)
         for i in coords:
@@ -45,13 +43,12 @@ def detect_face(img, img_gray, cascade):
         rest = (int(w * 0.55), int(w * 0.9))
         X = x
         Y = y
-
+ 
     return frame, frame_gray, lest, rest, X, Y
 
 
 def detect_eyes(img, img_gray, lest, rest, cascade):
     """
-
     :param img: image frame
     :param img_gray: gray image frame
     :param lest: left eye estimated position, needed to filter out nostril, know what eye is found
@@ -64,7 +61,7 @@ def detect_eyes(img, img_gray, lest, rest, cascade):
     leftEyeG = None
     rightEyeG = None
     coords = cascade.detectMultiScale(img_gray, 1.3, 5)
-
+ 
     if coords is None or len(coords) == 0:
         pass
     else:
@@ -81,6 +78,7 @@ def detect_eyes(img, img_gray, lest, rest, cascade):
             else:
                 pass  # nostril
     return leftEye, rightEye, leftEyeG, rightEyeG
+
 
 
 def process_eye(img, threshold, detector, prevArea=None):
