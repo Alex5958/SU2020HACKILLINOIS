@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import process
 from PyQt5.QtCore import QTimer
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPixmap, QImage
  
@@ -11,12 +11,15 @@ from PyQt5.QtGui import QPixmap, QImage
 class Window(QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
-        loadUi('C:/UCSD/SU2020HACKILLINOIS/eye/GUImain.ui', self)
-        with open("C:/UCSD/SU2020HACKILLINOIS/eye/style.css", "r") as css:
+        loadUi('C:/Users/kant4/Desktop/SU2020HACKILLINOIS/eye/GUImain.ui', self)
+        with open("C:/Users/kant4/Desktop/SU2020HACKILLINOIS/eye/style.css", "r") as css:
             self.setStyleSheet(css.read())
         self.face_decector, self.eye_detector, self.detector = process.init_cv()
         self.startButton.clicked.connect(self.start_webcam)
-        #self.stopButton.clicked.connect(self.stop_webcam)
+        self.stopButton.clicked.connect(self.stop_webcam)
+        self.focuslabel = QLabel(self)
+        self.focuslabel.setText("NO FACE")
+        self.focuslabel.move(60,410)
 
         self.camera_is_running = False
         self.previous_right_keypoints = None
@@ -81,26 +84,27 @@ class Window(QMainWindow):
  
         # draws keypoints on pupils on main window
         self.display_image(base_image)
+        if face_frame is not None:
+            if left_eye_frame is not None:
+                if right_eye_frame is not None:
+                    self.horizontal_ratio,self.vertical_ratio = process.motion_ratio(
+                        left_keypoints,self.previous_left_keypoints,
+                        right_keypoints,self.previous_right_keypoints)
 
-        if (left_eye_frame is not None) and (right_eye_frame is not None):
-            self.horizontal_ratio,self.vertical_ratio = process.motion_ratio(
-                left_keypoints,self.previous_left_keypoints,
-                right_keypoints,self.previous_right_keypoints)
+                    self.is_focused = False
+                    if (not process.is_right(self.horizontal_ratio)):
+                        if (not process.is_left(self.horizontal_ratio)):
+                            if(not process.is_up(self.vertical_ratio)):
+                                if(not process.is_down(self.vertical_ratio)):
+                                    self.is_focused = True
 
-            self.is_focused = False
-            if (not process.is_right(self.horizontal_ratio)):
-                if (not process.is_left(self.horizontal_ratio)):
-                    if(not process.is_up(self.vertical_ratio)):
-                        if(not process.is_down(self.vertical_ratio)):
-                            self.is_focused = True
-
-            self.focuslabel = QLabel(self)
-            if (self.is_focused):
-                
-                self.focuslabel.setText("Engaged")
-            else:
-                self.focuslabel.setText("Not Engaged")
-
+                    
+                    if (self.is_focused):
+                        
+                        self.focuslabel.setText("Engaged")
+                    else:
+                        self.focuslabel.setText("Not Engaged")
+                        
                         
 
 
